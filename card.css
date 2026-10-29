@@ -11,5 +11,6 @@ body {
   place-items: center;
 }
 .toggle {
+  display: grid;
   place-items: center;
 }

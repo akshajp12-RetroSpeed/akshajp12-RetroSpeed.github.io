@@ -28,6 +28,25 @@ var currentUserIndex = 0;
 function toggleUserUsingIndex() {
   currentUserIndex = (currentUserIndex + 1) % users.length;
   var currentUser = users[currentUserIndex];
+
+function getRandomUser() {
+  fetch('https://randomuser.me/api')
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data) {
+      // Process the JSON data to extract the user information/
+      var currentUser = data.results[0];
+      var gender = currentUser.gender;
+      var name = currentUser.name.title + " " + currentUser.name.first + " " + currentUser.name.last;
+      var pic = currentUser.picture.large;
+
+      // Now set the values to the HTML elements
+      userName.textContent = name;
+      userGender.textContent = gender;
+      userPic.setAttribute("src", pic);
+  });
+}
   userName.textContent = currentUser.name;
   userGender.textContent = currentUser.gender;
   userPic.setAttribute("src", currentUser.pic);

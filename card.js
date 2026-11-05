@@ -2,6 +2,7 @@ var userPic = document.getElementById("pic");
 var userName = document.getElementById("name");
 var userGender = document.getElementById("gender");
 
+
 function toggleUser() {
   if(userName.textContent == "John Doe") {
     userName.textContent = "Jane Doe";
@@ -24,6 +25,7 @@ var users = [
   { name: "Riaan", gender: "Male", pic: "riaan.png" },
 ];
 
+
 var currentUserIndex = 0;
 function toggleUserUsingIndex() {
   currentUserIndex = (currentUserIndex + 1) % users.length;
@@ -31,8 +33,8 @@ function toggleUserUsingIndex() {
   userName.textContent = currentUser.name;
   userGender.textContent = currentUser.gender;
   userPic.setAttribute("src", currentUser.pic);
-
-function getRandomUser() {
+}
+function randomUser() {
   fetch('https://randomuser.me/api')
   .then(function(response){
     return response.json();
@@ -44,13 +46,10 @@ function getRandomUser() {
       var name = currentUser.name.title + " " + currentUser.name.first + " " + currentUser.name.last;
       var pic = currentUser.picture.large;
 
+
       // Now set the values to the HTML elements
       userName.textContent = name;
       userGender.textContent = gender;
       userPic.setAttribute("src", pic);
   });
-}
-  userName.textContent = currentUser.name;
-  userGender.textContent = currentUser.gender;
-  userPic.setAttribute("src", currentUser.pic);
 }

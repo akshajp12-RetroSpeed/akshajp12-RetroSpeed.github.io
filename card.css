@@ -14,3 +14,7 @@ body {
   display: grid;
   place-items: center;
 }
+.getRandomUser {
+  display: grid;
+  place-items: center;
+}

@@ -28,6 +28,9 @@ var currentUserIndex = 0;
 function toggleUserUsingIndex() {
   currentUserIndex = (currentUserIndex + 1) % users.length;
   var currentUser = users[currentUserIndex];
+  userName.textContent = currentUser.name;
+  userGender.textContent = currentGender.gender;
+  userPic.setAttribute("src", currentPic.pic);
 
 function getRandomUser() {
   fetch('https://randomuser.me/api')
